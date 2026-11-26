@@ -118,8 +118,8 @@ function App() {
 
             <div className="hero-visual metric-visual" aria-label="Mesa Technology business impact metrics">
               <article className="metric-item">
-                <span className="eyebrow">Total value delivered</span>
-                <strong className="metric-number"><CountUp end={1234200} prefix="$" /></strong>
+                <span className="eyebrow">Total Commercial value delivered</span>
+                <strong className="metric-number"><CountUp end={1127200} prefix="$" /></strong>
               </article>
               <article className="metric-item">
                 <span className="eyebrow">Total labour hours automated</span>

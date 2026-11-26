@@ -48,7 +48,8 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 }
 .hero-eyebrow > span { display: inline-block; width: 34px; height: 1px; background: var(--blue); }
 .metric-item > .eyebrow > span { display: none; }
-.hero h1 { margin: 0; font-family: 'Manrope', sans-serif; font-size: clamp(48px, 4.8vw, 68px); line-height: 1.02; letter-spacing: -.055em; color: #f2f6fa; }
+.hero h1, .section-heading h2, .about h2 { min-height: 58px; font-family: 'Manrope', sans-serif; font-size: clamp(44px, 4vw, 58px); line-height: 1; letter-spacing: -.055em; }
+.hero h1 { margin: 0; color: #f2f6fa; }
 .hero h1 em { font-style: normal; color: #91bddc; }
 .hero-lead { max-width: 590px; margin: 28px 0 34px; color: #abb9c6; font-size: 17px; line-height: 1.75; }
 
@@ -89,7 +90,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 .defence { background: #edf1f5; color: #142235; }
 .section-heading { display: grid; grid-template-columns: 1.25fr .75fr; align-items: end; gap: 80px; margin-bottom: 54px; }
 .section-index { display: block; margin-bottom: 22px; color: #63819a; font-size: 10px; font-weight: 700; letter-spacing: .19em; }
-.section-heading h2 { margin: 0; font-family: 'Manrope', sans-serif; font-size: clamp(42px, 4.2vw, 58px); line-height: 1.08; letter-spacing: -.04em; }
+.section-heading h2 { margin: 0; }
 .section-heading > p { margin: 0 0 5px; color: #687684; font-size: 15px; line-height: 1.75; }
 .defence-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid #ccd5dc; }
 .service-card { position: relative; min-height: 300px; padding: 38px 34px 32px; border-right: 1px solid #ccd5dc; background: rgba(255, 255, 255, .32); }
@@ -127,7 +128,7 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round
 .service-action:hover { background: #0d1d31; }
 
 .about { padding: 100px 0; background: #dfe6ec; color: #142235; }
-.about h2 { margin: 0 0 28px; font-family: 'Manrope', sans-serif; font-size: clamp(42px, 4.5vw, 62px); line-height: 1.05; letter-spacing: -.04em; }
+.about h2 { margin: 0 0 28px; }
 .about h2 em { color: #547792; font-style: normal; }
 .about p { max-width: 520px; margin: 0 0 24px; color: #667785; line-height: 1.7; }
 .text-link { display: inline-flex; align-items: center; gap: 20px; padding-bottom: 6px; border-bottom: 1px solid #718b9f; font-size: 13px; font-weight: 600; }
@@ -179,19 +180,16 @@ footer { background: #08111f; }
   .brand-name { font-size: 18px; }
   .hero { min-height: 680px; }
   .hero-inner { padding-top: 135px; }
-  .hero h1 { font-size: 44px; }
   .hero-lead { font-size: 15px; }
   .trust-strip { height: 84px; }
   .trust-inner { justify-content: space-between; }
   .trust-inner strong { max-width: 90px; line-height: 1.4; }
   .trust-inner i, .trust-inner span { display: none; }
   .section { padding: 78px 0; }
-  .section-heading h2 { font-size: 38px; }
   .clearance-bar { height: auto; min-height: 100px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 12px; }
   .clearance-levels { width: 100%; justify-content: space-between; gap: 8px; }
   .clearance-levels i { width: 12px; }
   .about { padding: 78px 0; }
-  .about h2 { font-size: 40px; }
   .footer-main { min-height: 260px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 42px; }
   .footer-contact { align-items: flex-start; }
   .footer-bottom { height: auto; min-height: 118px; grid-template-columns: 1fr; align-content: center; gap: 10px; padding: 18px 0; }
