@@ -27,6 +27,54 @@ const Icon = ({ type }) => {
   return <svg className="service-icon" viewBox="0 0 24 24" aria-hidden="true">{paths[type]}</svg>
 }
 
+const CountUp = ({ end, prefix = '', suffix = '', format = true, duration = 1800 }) => {
+  const [value, setValue] = useState(0)
+  const elementRef = React.useRef(null)
+
+  useEffect(() => {
+    const element = elementRef.current
+    if (!element) return
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduceMotion) {
+      setValue(end)
+      return
+    }
+
+    let animationFrame
+    let observer
+
+    const animate = () => {
+      const startTime = performance.now()
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1)
+        const eased = 1 - Math.pow(1 - progress, 3)
+        setValue(Math.round(end * eased))
+        if (progress < 1) animationFrame = requestAnimationFrame(tick)
+      }
+      animationFrame = requestAnimationFrame(tick)
+    }
+
+    observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        animate()
+        observer.disconnect()
+      }
+    }, { threshold: 0.35 })
+
+    observer.observe(element)
+
+    return () => {
+      observer?.disconnect()
+      if (animationFrame) cancelAnimationFrame(animationFrame)
+    }
+  }, [end, duration])
+
+  const displayed = format ? value.toLocaleString('en-AU') : String(value)
+
+  return <span className="count-up" ref={elementRef}>{prefix && <span className="metric-currency">{prefix}</span>}<span className="metric-value">{displayed}</span>{suffix}</span>
+}
+
 function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -63,18 +111,20 @@ function App() {
           <div className="hero-glow" aria-hidden="true" />
           <div className="container hero-inner">
             <div className="hero-copy">
-              <div className="eyebrow"><span /> Advancing your organisation towards innovation</div>
-              <h1>Advance and innovate<br /><em>with trusted capability.</em></h1>
-              <p className="hero-lead">Mesa Technology provides Australian businesses and organisations with innovative, bleeding-edge solutions to drive growth and efficiency. Our mission is to empower your organisation with the systems and expertise it needs to succeed, today and into the future. We specialise in the modernisation of business services, desgin and implementation of technological system capabilities and AI-driven solutions. </p>
+              <div className="eyebrow hero-eyebrow"><span /> Advancing your organisation towards innovation</div>
+              <h1 className="hero-title">Advance and innovate<br /><em>with trusted capability.</em></h1>
+              <p className="hero-lead">Mesa Technology provides Australian businesses and organisations with innovative, bleeding-edge solutions to drive growth and efficiency. Our mission is to empower your organisation with the systems and expertise it needs to succeed, today and into the future. We specialise in the modernisation of business services, design and implementation of technological system capabilities and AI-driven solutions. </p>
             </div>
 
-            <div className="hero-visual" aria-label="Mesa capability network illustration">
-              <div className="orbital orbital-one" />
-              <div className="orbital orbital-two" />
-              <div className="network-lines"><i/><i/><i/><i/><i/></div>
-              <div className="monogram-large"><span>M</span></div>
-              <div className="status-card status-card-one"><b>DEFENCE</b><span>Specialist capability</span></div>
-              <div className="status-card status-card-two"><b>DIGITAL</b><span>Modern technology</span></div>
+            <div className="hero-visual metric-visual" aria-label="Mesa Technology business impact metrics">
+              <article className="metric-item">
+                <span className="eyebrow">Total value delivered</span>
+                <strong className="metric-number"><CountUp end={1234200} prefix="$" /></strong>
+              </article>
+              <article className="metric-item">
+                <span className="eyebrow">Total labour hours automated</span>
+                <strong className="metric-number"><CountUp end={4241} /></strong>
+              </article>
             </div>
           </div>
           <div className="trust-strip">
@@ -121,7 +171,7 @@ function App() {
             <div className="section-heading">
               <div>
                 <span className="section-index">02 / DEFENCE</span>
-                <h2>Specialist people for<br />critical missions.</h2>
+                <h2>Specialist people for<br />critical capabilities.</h2>
               </div>
               <p>We provide Defence consulting and contracting capability across Australian Government environments — from strategic advisory to specialist technical delivery.</p>
             </div>
@@ -193,7 +243,7 @@ function App() {
             </div>
           </div>
           <div className="container footer-bottom">
-            <span>© {new Date().getFullYear()} Mesa Technology Pty Ltd</span>
+            <span>© {new Date().getFullYear()} Mesa Technology</span>
             <span className="powered-by"><ReactLogo /> Powered by React</span>
             <span>Canberra · Australia</span>
           </div>
