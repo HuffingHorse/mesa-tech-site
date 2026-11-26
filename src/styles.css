@@ -143,7 +143,7 @@ footer { background: #08111f; }
 .footer-bottom { height: 68px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; border-top: 1px solid rgba(157, 182, 201, .12); color: #6f8291; font-size: 11px; }
 .footer-bottom > span:last-child { justify-self: end; }
 .powered-by { display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; }
-.react-logo { width: 19px; height: 19px; color: #61dafb; }
+.react-logo { width: 25px; height: 25px; color: #61dafb; }
 
 .metric-visual { height: 480px; display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 44px; padding-left: 32px; padding-top: 0; overflow: visible; }
 .metric-item { display: flex; flex-direction: column; }
