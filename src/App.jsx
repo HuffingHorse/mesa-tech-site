@@ -87,7 +87,7 @@ function App() {
   const closeMenu = () => setMenuOpen(false)
 
   return (
-    <div className="site-shell">
+    <>
       <header className="nav-wrap">
         <nav className="nav container" aria-label="Primary navigation">
           <a className="brand" href="#top" aria-label="Mesa Technology home" onClick={closeMenu}>
@@ -108,15 +108,15 @@ function App() {
       <main id="top">
         <section className="hero">
           <div className="hero-grid" aria-hidden="true" />
-          <div className="hero-glow" aria-hidden="true" />
           <div className="container hero-inner">
-            <div className="hero-copy">
+            <div>
               <div className="eyebrow hero-eyebrow"><span /> Advancing your organisation towards innovation</div>
-              <h1 className="hero-title">Advance and innovate<br /><em>with trusted capability.</em></h1>
+              <h1>Advance and innovate<br /><em>with proven results.</em></h1>
               <p className="hero-lead">Mesa Technology provides Australian businesses and organisations with innovative, bleeding-edge solutions to drive growth and efficiency. Our mission is to empower your organisation with the systems and expertise it needs to succeed, today and into the future. We specialise in the modernisation of business services, design and implementation of technological system capabilities and AI-driven solutions. </p>
             </div>
 
             <div className="hero-visual metric-visual" aria-label="Mesa Technology business impact metrics">
+              <div className="hero-glow" aria-hidden="true" />
               <article className="metric-item">
                 <span className="eyebrow">Total Commercial value delivered</span>
                 <strong className="metric-number"><CountUp end={1127200} prefix="$" /></strong>
@@ -144,7 +144,7 @@ function App() {
             <div className="section-heading light-heading">
               <div>
                 <span className="section-index">01 / DIGITAL</span>
-                <h2>Modern technology.<br />Measurable progress.</h2>
+                <h2>Modern technology,<br /><em>measurable progress.</em></h2>
               </div>
               <p>We help Australian organisations modernise operations, integrate systems and adopt practical AI — with a clear focus on outcomes and implementation.</p>
             </div>
@@ -171,51 +171,42 @@ function App() {
             <div className="section-heading">
               <div>
                 <span className="section-index">02 / DEFENCE</span>
-                <h2>Specialist people for<br />critical capabilities.</h2>
+                <h2>Specialist people for<br /><em>critical capabilities.</em></h2>
               </div>
               <p>We provide Defence consulting and contracting capability across Australian Government environments — from strategic advisory to specialist technical delivery.</p>
             </div>
 
             <div className="defence-grid">
-              <article className="service-card featured">
-                <div className="card-number">01</div>
+              <article className="service-card">
                 <Icon type="people" />
-                <h3>Defence Workforce Solutions</h3>
-                <p>High-quality, Defence-experienced candidates matched to mission requirements.</p>
+                <div>
+                  <span>01</span>
+                  <h3>Defence Workforce Solutions</h3>
+                  <p>High-quality, Defence-experienced candidates matched to mission requirements.</p>
+                </div>
               </article>
               <article className="service-card">
-                <div className="card-number">02</div>
                 <Icon type="shield" />
-                <h3>Vetted Security Clearances</h3>
-                <p>Candidate capability from Baseline through to Positive Vetting, aligned to program needs.</p>
+                <div>
+                  <span>02</span>
+                  <h3>Vetted Security Clearances</h3>
+                  <p>Candidate capability from Baseline through to Positive Vetting, aligned to program needs.</p>
+                </div>
               </article>
               <article className="service-card">
-                <div className="card-number">03</div>
                 <Icon type="target" />
-                <h3>Consulting & Contracting</h3>
-                <p>Flexible professional and technical services for ADF, Defence and intelligence organisations.</p>
+                <div>
+                  <span>03</span>
+                  <h3>Consulting & Contracting</h3>
+                  <p>Flexible professional and technical services for ADF, Defence and intelligence organisations.</p>
+                </div>
               </article>
             </div>
 
-            <div className="clearance-bar">
+            <div className="clearance-levels" aria-label="Clearance capability and available security clearance levels">
               <span>Clearance capability</span>
-              <div className="clearance-levels" aria-label="Available security clearance levels"><strong>Baseline</strong><i/><strong>NV1</strong><i/><strong>NV2</strong><i/><strong>PV</strong></div>
+              <strong>Baseline</strong><i/><strong>NV1</strong><i/><strong>NV2</strong><i/><strong>PV</strong>
             </div>
-          </div>
-        </section>
-
-        <section className="service-actions" aria-label="Explore Mesa Technology services">
-          <div className="container service-actions-inner">
-            <a className="service-action" href="#digital">
-              <span>Explore</span>
-              <strong>Digital Services</strong>
-              <Arrow />
-            </a>
-            <a className="service-action" href="#defence">
-              <span>Explore</span>
-              <strong>Defence Services</strong>
-              <Arrow />
-            </a>
           </div>
         </section>
 
@@ -249,7 +240,7 @@ function App() {
           </div>
         </footer>
       </main>
-    </div>
+    </>
   )
 }
 
