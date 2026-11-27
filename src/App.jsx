@@ -213,8 +213,8 @@ function App() {
         <section className="about" id="about">
           <div className="container about-inner">
             <span className="section-index">WHY MESA</span>
-            <h2>Built on trust.<br /><em>Driven by capability.</em></h2>
-            <p>Mesa Technology brings disciplined delivery, domain understanding and an outcome-first mindset to every engagement.</p>
+            <h2>Built on expertise,<br /><em>driven by outcomes.</em></h2>
+            <p>Mesa Technology brings disciplined delivery, technical expertise and an outcome-first mindset to every engagement.</p>
             <a className="text-link" href="#contact">Start a conversation <Arrow /></a>
           </div>
         </section>
